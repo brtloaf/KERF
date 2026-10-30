@@ -1,0 +1,23 @@
+{
+  // Cloudflare Worker config for KERF.
+  // "name" must match the Worker/project name in your Cloudflare dashboard.
+  "name": "kerf",
+  "main": "src/index.js",
+  "compatibility_date": "2026-10-01",
+
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    // /api/* goes to the Worker code; everything else is served from /public
+    "run_worker_first": ["/api/*"]
+  },
+
+  // Public settings (safe to commit).
+  // PAYPAL_CLIENT_SECRET is NOT here: add it in the Cloudflare dashboard as a Secret.
+  "vars": {
+    "PAYPAL_ENV": "sandbox",
+    "PAYPAL_CLIENT_ID": "BAAwXXqcD5waLS2kfQnIoi-bupS4JeAe6nwPB6dKNx7hFRG9fAGuS7L2NJ2_OGyukl88RMVjmzf-om1Gtk"
+  },
+
+  "observability": { "enabled": true }
+}
